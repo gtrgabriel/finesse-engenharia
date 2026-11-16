@@ -9,4 +9,4 @@ Thumbs.db
 *.log
 
 # Capturas originais (as versões recortadas usadas pelo app ficam em assets/)
-assets/src/
+public/assets/src/

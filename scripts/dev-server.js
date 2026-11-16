@@ -1,8 +1,8 @@
-// Servidor estático mínimo para o protótipo (sem dependências): node server.js
+// Servidor estático mínimo para o protótipo (sem dependências): node scripts/dev-server.js
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const root = __dirname;
+const root = path.join(__dirname, '..', 'public');
 const port = process.env.PORT || 4173;
 const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.jpg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.svg': 'image/svg+xml' };
 http.createServer((req, res) => {

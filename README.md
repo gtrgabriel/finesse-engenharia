@@ -7,7 +7,7 @@ Protótipo HTML/CSS/JS **mobile-first**, sem build e sem dependências de backen
 ## Como rodar
 
 ```bash
-node server.js
+npm run dev
 ```
 
 Abra http://localhost:4173. O app usa rotas por hash (`#/client`, `#/command`…). Por isso, qualquer hospedagem estática serve (Vercel, Netlify, GitHub Pages): basta publicar a pasta.
@@ -18,7 +18,7 @@ O projeto é estático e não tem etapa de build (`vercel.json` já está config
 
 1. Suba o repositório no GitHub.
 2. Na Vercel: **Add New → Project → Import** o repositório.
-3. Framework Preset: **Other**. Deixe Build Command e Output Directory vazios (o site é servido da raiz).
+3. Framework Preset: **Other**. O `vercel.json` define a pasta `public/` como saída, sem build.
 4. **Deploy.** Nenhuma variável de ambiente é necessária.
 
 Pela CLI, como alternativa: `npx vercel` (preview) e `npx vercel --prod`.
@@ -46,16 +46,19 @@ Para trocar de perfil, use o avatar no topo (mobile) ou o rodapé da sidebar (de
 ## Arquitetura
 
 ```
-index.html          shell + fontes + Lucide (CDN)
-styles.css          design system: tokens de cor e motion, componentes, layouts
-data.js             seed relacional (IDs) + store localStorage + seletores e regras derivadas
-app.js              utilitários, roteador hash, shell, componentes (Gantt, gráficos, antes/depois,
-                    sheets, toasts), motion runtime, adapter determinístico da Finesse AI
-views-public.js     onboarding (8 etapas) + portfólio
-views-client.js     Finesse Client + drawer de atividade (edição para Wellington)
-views-command.js    Finesse Command
-views-field.js      Finesse Field
-server.js           servidor estático de desenvolvimento (Node, zero deps)
+public/                    site estático publicado pela Vercel
+  index.html               shell + fontes + Lucide (CDN)
+  styles.css               design system: tokens de cor e motion, componentes, layouts
+  data.js                  seed relacional (IDs) + store localStorage + seletores e regras derivadas
+  app.js                   utilitários, roteador hash, shell, componentes (Gantt, gráficos,
+                           antes/depois, sheets, toasts), motion runtime, adapter da Finesse AI
+  views-public.js          onboarding (8 etapas) + portfólio
+  views-client.js          Finesse Client + drawer de atividade (edição para Wellington)
+  views-command.js         Finesse Command
+  views-field.js           Finesse Field
+  assets/                  fotos recortadas + logo
+scripts/dev-server.js      servidor estático de desenvolvimento (Node, zero deps)
+vercel.json                saída = public/, sem build, cache de assets
 ```
 
 - **Estado:** `localStorage["finesse-os-v1"]`. Para restaurar o estado inicial, use Configurações → *Restaurar dados originais*.
