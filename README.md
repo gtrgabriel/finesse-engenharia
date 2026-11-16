@@ -18,7 +18,7 @@ O projeto é estático e não tem etapa de build (`vercel.json` já está config
 
 1. Suba o repositório no GitHub.
 2. Na Vercel: **Add New → Project → Import** o repositório.
-3. Framework Preset: **Other**. Deixe Build Command e Output Directory como estão (o `vercel.json` define).
+3. Framework Preset: **Other**. Deixe Build Command e Output Directory vazios (o site é servido da raiz).
 4. **Deploy.** Nenhuma variável de ambiente é necessária.
 
 Pela CLI, como alternativa: `npx vercel` (preview) e `npx vercel --prod`.
