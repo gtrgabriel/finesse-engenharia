@@ -1,0 +1,12 @@
+# Dependências e builds
+node_modules/
+.vercel/
+
+# Ferramentas locais
+.claude/
+.DS_Store
+Thumbs.db
+*.log
+
+# Capturas originais (as versões recortadas usadas pelo app ficam em assets/)
+assets/src/

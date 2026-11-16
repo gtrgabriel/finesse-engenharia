@@ -1,0 +1,13 @@
+{
+  "name": "finesse-os",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Finesse OS — protótipo navegável de gestão e acompanhamento de obras (Finesse Engenharia).",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
